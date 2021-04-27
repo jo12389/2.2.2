@@ -36,12 +36,4 @@ public class Car {
         this.weight = weight;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "color='" + color + '\'' +
-                ", year=" + year +
-                ", weight=" + weight +
-                '}';
-    }
 }

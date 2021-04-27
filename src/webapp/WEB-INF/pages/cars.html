@@ -1,15 +1,92 @@
+<!--
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
 <div>
-    <th:block th:each="car : ${carsList}">
+    &lt;!&ndash;<th:block th:each="car : ${carsList}">
         <h1 th:text="${car}"></h1>
     </th:block>
+
+    <h1>th:each</h1>&ndash;&gt;
+
+    <ul>
+        <th:block th:each="car : ${carsList}">
+            <li th:utext="${car}">..</li>
+        </th:block>
+    </ul>
+
+    <p th:text = "${carList}"></p>
 </div>
+</body>
+</html>-->
+<!--<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Loop</title>
+</head>
+
+<body>
+<h1>th:each</h1>
+
+<ul>
+    <th:block th:each="car : ${carList}">
+        <li th:utext="${car}">..</li>
+    </th:block>
+</ul>
+
+</body>
+
+</html>-->
+
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Loop</title>
+    <style>
+        table th, table td {padding: 5px;}
+        .row  {
+            font-style: italic;
+        }
+        .even-row {
+            color: black;
+        }
+        .odd-row {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+<h1></h1>
+
+<table border="1">
+    <tr>
+        <th>Car</th>
+        <th>Color</th>
+        <th>Year</th>
+        <th>Weight</th>
+    </tr>
+
+    <tr th:each="car, state : ${carList}"
+        class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
+
+        <td th:utext="${state.count}">Number</td>
+        <td th:utext="${car.color}">Color</td>
+        <td th:utext="${car.year}">Year</td>
+        <td th:utext="${car.weight}">Weight</td>
+
+    </tr>
+
+</table>
+
 </body>
 </html>
